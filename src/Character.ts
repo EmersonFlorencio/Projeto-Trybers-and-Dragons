@@ -1,6 +1,6 @@
 import Archetype, { Mage } from './Archetypes';
 import Energy from './Energy';
-import Fighter from './Fighter';
+import Fighter, { SimpleFighter } from './Fighter';
 import Race, { Elf } from './Races';
 import getRandomInt from './utils';
 
@@ -64,7 +64,7 @@ class Character implements Fighter {
     return this._lifePoints;
   };
 
-  attack = (enemy: Fighter) => enemy.receiveDamage(this.strength);
+  attack = (enemy: SimpleFighter) => enemy.receiveDamage(this.strength);
 
   levelUp = () => {
     this._maxLifePoints += getRandomInt(1, 10);
